@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="title_calculator">Calculator</string>
+    <string name="calculator_copy">Copy</string>
+    <string name="calculator_equation">Equation</string>
+    <string name="calculator_grid_clear">Clear</string>
+    <string name="calculator_grid_delete">Delete</string>
+    <string name="calculator_grid_solve">Solve</string>
+    <string name="calculator_grid_zero">0</string>
+    <string name="calculator_grid_one">1</string>
+    <string name="calculator_grid_two">2</string>
+    <string name="calculator_grid_three">3</string>
+    <string name="calculator_grid_four">4</string>
+    <string name="calculator_grid_five">5</string>
+    <string name="calculator_grid_six">6</string>
+    <string name="calculator_grid_seven">7</string>
+    <string name="calculator_grid_eight">8</string>
+    <string name="calculator_grid_nine">9</string>
+    <string name="calculator_grid_coma">.</string>
+    <string name="calculator_grid_sum">+</string>
+    <string name="calculator_grid_odds">-</string>
+    <string name="calculator_grid_division">÷</string>
+    <string name="calculator_grid_multiplication">x</string>
+</resources>

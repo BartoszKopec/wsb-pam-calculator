@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- "layout" and "data" come from MVVM pattern -->
+
+    <data>
+        <!-- model to which the binding will be made  -->
+        <variable
+            name="viewModel"
+            type="com.foxdev.calculator.ui.calculator.CalculatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/baseBackground"
+        android:gravity="fill"
+        android:orientation="vertical"
+        android:padding="24dp"
+        tools:context=".ui.calculator.CalculatorFragment">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calculator_equation"
+            android:textColor="@color/baseText"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/calcEquationText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/calcCopyButton"
+            style="@style/CalculatorButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calculator_copy"
+            android:onClick="@{()->viewModel.copyEquationToClipboard()}"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@id/calcEquationText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/calcEquationText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/roundborder"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/equationText"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/calcClear"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.clearEquation()}"
+                    android:text="@string/calculator_grid_clear"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/calcDelete"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.deleteLastCharOfEquation()}"
+                    android:text="@string/calculator_grid_delete" />
+
+                <Button
+                    android:id="@+id/calcSolve"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.solveEquation()}"
+                    android:text="@string/calculator_grid_solve" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/calcNumberOne"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('1')}"
+                    android:text="@string/calculator_grid_one" />
+
+                <Button
+                    android:id="@+id/calcNumberTwo"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('2')}"
+                    android:text="@string/calculator_grid_two" />
+
+                <Button
+                    android:id="@+id/calcNumberThree"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('3')}"
+                    android:text="@string/calculator_grid_three" />
+
+                <Button
+                    android:id="@+id/calcOperationSum"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('+')}"
+                    android:text="@string/calculator_grid_sum" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/calcNumberFour"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('4')}"
+                    android:text="@string/calculator_grid_four" />
+
+                <Button
+                    android:id="@+id/calcNumberFive"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('5')}"
+                    android:text="@string/calculator_grid_five" />
+
+                <Button
+                    android:id="@+id/calcNumberSix"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('6')}"
+                    android:text="@string/calculator_grid_six" />
+
+                <Button
+                    android:id="@+id/calcOperationOdds"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('-')}"
+                    android:text="@string/calculator_grid_odds" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/calcNumberSeven"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('7')}"
+                    android:text="@string/calculator_grid_seven" />
+
+                <Button
+                    android:id="@+id/calcNumberEight"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('8')}"
+                    android:text="@string/calculator_grid_eight" />
+
+                <Button
+                    android:id="@+id/calcNumberNine"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('9')}"
+                    android:text="@string/calculator_grid_nine" />
+
+                <Button
+                    android:id="@+id/calcOperationMultiply"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('*')}"
+                    android:text="@string/calculator_grid_multiplication" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CalculatorButtonStyle" />
+
+                <Button
+                    android:id="@+id/calcNumberZero"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('0')}"
+                    android:text="@string/calculator_grid_zero" />
+
+                <Button
+                    android:id="@+id/calcDot"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('.')}"
+                    android:text="@string/calculator_grid_coma" />
+
+                <Button
+                    android:id="@+id/calcOperationDiv"
+                    style="@style/CalculatorButtonStyle"
+                    android:onClick="@{()->viewModel.addToEquation('/')}"
+                    android:text="@string/calculator_grid_division" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

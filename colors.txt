@@ -1,0 +1,4 @@
+bg with white text: 3D00A8
+base text: 27095C
+base equation text: 055C15
+wrong smth: A86211
